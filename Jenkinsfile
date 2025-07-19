@@ -22,13 +22,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            echo 'Cleaning up the container...'
-            // Stop and remove the container. The '|| true' prevents the
-            // pipeline from failing if the container doesn't exist.
-            bat 'docker stop tomcat-jenkins || true'
-            bat 'docker rm tomcat-jenkins || true'
-        }
-    }
 }
